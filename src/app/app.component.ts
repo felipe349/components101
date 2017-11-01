@@ -2,9 +2,23 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+
+  <h1>Hello!</h1>
+
+  `,
+  styles: [`
+  
+    h1{
+      text-decoration:underline
+    }
+    
+  `]
 })
 export class AppComponent {
-  title = 'app';
+
+  myEvent(event){
+    console.log(event);
+  }
+
 }
