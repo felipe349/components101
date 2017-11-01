@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
   template: `
 
-  <h1>Hello!</h1>
+  <p>{{ someProperty }}</p>
 
   `,
   styles: [`
@@ -12,13 +13,29 @@ import { Component } from '@angular/core';
     h1{
       text-decoration:underline
     }
+
+    .red-title{
+      color:red
+    }
     
+    .large-title{
+      font-size:4em
+    }
+
   `]
 })
 export class AppComponent {
 
-  myEvent(event){
-    console.log(event);
+  constructor(private dataService:DataService){
+
+  }
+
+  someProperty:string = '';
+
+  ngOnInit(){
+    console.log(this.dataService.cars);
+
+    this.someProperty = this.dataService.myData();
   }
 
 }
